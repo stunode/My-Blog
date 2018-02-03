@@ -22,7 +22,7 @@
           body {
                background-repeat: no-repeat;
                background-position: center;
-               background-image: url("https://i.imgur.com/UUEv4ho.jpg");
+               background-image: url("https://i.imgur.com/R7AEVf8.jpg");
           }
 
           #main{
@@ -42,10 +42,13 @@
 <body>
 <div id="main">
 
-     <h1 style=" position: absolute; left:100px;top:150px; font-family:Simsun;"><font size="7" color="#f5f5f5">this is test</font></h1>
-     <h1 style=" position: absolute; left:100px;top:250px;font-family:Simsun;"><font size="7" color="#f5f5f5">this is test </font></h1>
-     <h1 style=" position: absolute; left:100px;top:350px;font-family:Simsun;"><font size="7" color="#f5f5f5">this is test </font></h1>
-     <button id="isOk" type="button">ok</button>
+     <!--<h1 style=" position: absolute; left:100px;top:50px; font-family:Simsun;"><font size="7" color="#f5f5f5">this is test</font></h1>-->
+     <!--<h1 style=" position: absolute; left:100px;top:150px;font-family:Simsun;"><font size="7" color="#f5f5f5">this is test </font></h1>-->
+     <h1 style=" position: absolute; left:100px;top:250px;font-family:Simsun;"><font size="7" color="#f5f5f5">Can i date you </font></h1>
+     <div style=" position: absolute; left:100px;top:350px;">
+          <input type="text" id="deviceNo" value="ok" disabled="disabled"/>
+          <button id="isOk" type="button">sure</button>
+     </div>
 
 
 </div>
@@ -60,11 +63,42 @@
 
     $(function () {
         $('#isOk').on('click', function () {
-            sheSayOk()                    //保存
+            sheSayOk();
         });
-    }
+    });
     function sheSayOk() {
-        console.log("is ok")
+        console.log("is ok");
+        var getUrl = getRootPath()+"/xiaowanziOk";
+        $.ajax({
+            type: "GET",
+            url: getUrl,
+            dataType: "json",
+            success: function (res) {
+
+            },
+            error: function (err) {
+            }
+        });
+
+    }
+    function getRootPath() {
+        //获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
+        var curWwwPath = window.document.location.href;
+        //获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        //获取主机地址，如： http://localhost:8083
+        var localhostPaht = curWwwPath.substring(0, pos);
+        //获取带"/"的项目名，如：/uimcardprj
+        var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+        /*if (curWwwPath.indexOf('intel.psiot.com.cn') >= 0 || curWwwPath.indexOf('creater.com.cn') >= 0 || curWwwPath.indexOf('huge.com.cn') >= 0) {
+         return localhostPaht;
+         }*/
+
+        if (curWwwPath.indexOf('intel.psiot.com.cn') >= 0 || curWwwPath.indexOf('creater.com.cn') >= 0 || curWwwPath.indexOf('huge.com.cn') >= 0) {
+            return localhostPaht;
+        }
+        return (localhostPaht + projectName);
     }
 </script>
 </body>

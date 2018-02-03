@@ -44,8 +44,8 @@
 
      <!--<h1 style=" position: absolute; left:100px;top:50px; font-family:Simsun;"><font size="7" color="#f5f5f5">this is test</font></h1>-->
      <!--<h1 style=" position: absolute; left:100px;top:150px;font-family:Simsun;"><font size="7" color="#f5f5f5">this is test </font></h1>-->
-     <h1 style=" position: absolute; left:100px;top:250px;font-family:Simsun;"><font size="7" color="#f5f5f5">Can i date you </font></h1>
-     <div style=" position: absolute; left:100px;top:350px;">
+     <h1 style=" position: absolute; left:100px;top:250px;font-family:Simsun;"><font size="7" color="#f5f5f5">Can I have a date with you?  </font></h1>
+     <div style=" position: absolute; left:100px;top:350px;" id="date">
           <input type="text" id="deviceNo" value="ok" disabled="disabled"/>
           <button id="isOk" type="button">sure</button>
      </div>
@@ -74,6 +74,7 @@
             url: getUrl,
             success: function () {
                 alertMassage("You made a right decision!");
+                // $('#date').append("<input type='text' id='dateAddr' value='' />");
             },
             error: function (err) {
             }

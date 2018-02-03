@@ -24,7 +24,7 @@ public class XiaowanziController extends BaseController{
     @Autowired
     private ILogService logService;
 
-    @GetMapping(value = {"xiaowanzi","xiaowanzi.html"})
+    @GetMapping(value = {"xwz","xwz.html"})
     public String xiaowanzi(){
         return this.render("xiaowanzi");
     }
